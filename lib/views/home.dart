@@ -51,6 +51,15 @@ class _HomeState extends State<Home> {
             Text("News",style: TextStyle(color: Colors.deepOrange),)
           ],
         ),
+        actions: <Widget>[
+          Opacity(
+            opacity: 0,
+            child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Icon(Icons.account_balance_sharp)),
+          )
+        ],
+        centerTitle: true,
         elevation: 0.0,
 
       ),
