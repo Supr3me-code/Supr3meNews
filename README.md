@@ -1,6 +1,6 @@
-# news_app
+# Supr3me News
 
-A new Flutter application.
+
 
 ## Getting Started
 
