@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:news_app/models/article.dart';
 import 'package:http/http.dart' as http;
 class News{
-  List<ArticleModel> news = [];
+  List<Article> news = [];
 
   Future<void> getNews() async{
     Uri url = Uri.parse("https://newsapi.org/v2/top-headlines?country=in&apiKey=5218da74c8a8410790f03364b628d035");
@@ -15,7 +15,7 @@ class News{
     if(jsonData['status'] == "ok"){
       jsonData["articles"].forEach((element){
         if(element['title']!=null && element['urlToImage'] != null && element['description'] != null){
-          ArticleModel articleModel = ArticleModel(
+          Article articleModel = Article(
             title: element['title'],
             author: element['author'],
           description: element['description'],
@@ -32,7 +32,7 @@ class News{
 }
 
 class CategoryNewsClass{
-  List<ArticleModel> news = [];
+  List<Article> news = [];
 
   Future<void> getNews(String? category) async{
     Uri url = Uri.parse("https://newsapi.org/v2/top-headlines?category=$category&country=in&apiKey=5218da74c8a8410790f03364b628d035");
@@ -44,7 +44,7 @@ class CategoryNewsClass{
     if(jsonData['status'] == "ok"){
       jsonData["articles"].forEach((element){
         if(element['title']!=null && element['urlToImage'] != null && element['description'] != null){
-          ArticleModel articleModel = ArticleModel(
+          Article articleModel = Article(
             title: element['title'],
             author: element['author'],
             description: element['description'],

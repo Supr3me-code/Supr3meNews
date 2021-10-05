@@ -1,4 +1,4 @@
-class ArticleModel {
+class Article {
   String? author;
   String? title;
   String? description;
@@ -7,7 +7,7 @@ class ArticleModel {
   String? content;
   // DateTime publishedAt;
 
-  ArticleModel({
+  Article({
     this.author,
     this.title,
     this.description,
