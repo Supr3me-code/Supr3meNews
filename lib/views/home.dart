@@ -5,9 +5,9 @@ import 'package:news_app/helper/data.dart';
 import 'package:news_app/models/article.dart';
 import 'package:news_app/models/category.dart';
 import 'package:news_app/helper/news.dart';
-import 'package:news_app/views/article.dart';
 import 'package:news_app/views/category.dart';
 import 'package:news_app/widgets/appbar.dart';
+import 'package:news_app/widgets/article.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -16,20 +16,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<Category> categories = [];
-  List<Article> articles = [];
+  late Future<List<Article>> _articleFuture;
 
   @override
   void initState() {
-    super.initState();
+    _articleFuture = getNews();
     categories = getCategories();
-    getNews();
-  }
-
-  getNews() async {
-    News newsClass = News();
-    await newsClass.getNews();
-    articles = newsClass.news;
-    setState(() {});
+    super.initState();
   }
 
   @override
@@ -52,17 +45,25 @@ class _HomeState extends State<Home> {
       ),
       body: Padding(
         padding: EdgeInsets.only(top: 20),
-        child: ListView.builder(
-          itemCount: articles.length,
-          physics: ScrollPhysics(),
-          shrinkWrap: true,
-          itemBuilder: (context, index) {
-            return ArticleTile(
-              imageUrl: "${articles[index].urlToImage}",
-              title: "${articles[index].title}",
-              desc: "${articles[index].description}",
-              url: "${articles[index].url}",
-            );
+        child: FutureBuilder<List<Article>>(
+          future: this._articleFuture,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data!.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return ArticleTile(
+                    imageUrl: snapshot.data![index].urlToImage!,
+                    title: snapshot.data![index].title!,
+                    desc: snapshot.data![index].description!,
+                    url: snapshot.data![index].url!,
+                  );
+                },
+              );
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
           },
         ),
       ),
@@ -109,46 +110,6 @@ class CategoryTile extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline6,
               ),
             )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class ArticleTile extends StatelessWidget {
-  final String imageUrl, title, desc, url;
-  ArticleTile(
-      {required this.imageUrl,
-      required this.title,
-      required this.desc,
-      required this.url});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ArticleView(
-              articleUrl: url,
-            ),
-          ),
-        );
-      },
-      child: Container(
-        padding: EdgeInsets.fromLTRB(16, 0, 16, 10),
-        child: Column(
-          children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(6),
-              child: Image.network(imageUrl, fit: BoxFit.cover),
-            ),
-            SizedBox(height: 4),
-            Text(title, style: Theme.of(context).textTheme.subtitle1),
-            SizedBox(height: 4),
-            Text(desc, style: Theme.of(context).textTheme.caption),
           ],
         ),
       ),
