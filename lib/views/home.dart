@@ -2,12 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:news_app/helper/data.dart';
-import 'package:news_app/models/article_model.dart';
-import 'package:news_app/models/category_model.dart';
+import 'package:news_app/models/article.dart';
+import 'package:news_app/models/category.dart';
 import 'package:news_app/helper/news.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:news_app/views/article_view.dart';
-import 'package:news_app/views/category_view.dart';
+import 'package:news_app/views/category.dart';
+import 'package:news_app/widgets/appbar.dart';
+import 'package:news_app/widgets/article.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,129 +15,63 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<CategoryModel> categories = new List<CategoryModel>();
-  List<ArticleModel> articles = new List<ArticleModel>();
-
-  bool _loading = true;
+  List<Category> categories = [];
+  late Future<List<Article>> _articleFuture;
 
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
+    _articleFuture = getNews();
     categories = getCategories();
-    getNews();
-  }
-
-  getNews() async {
-    News newsClass = News();
-    await newsClass.getNews();
-    articles = newsClass.news;
-    setState(() {
-      _loading = true;
-    });
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("Supr3me",
-            style: TextStyle(color: Colors.white),
-            ),
-            Text("News",style: TextStyle(color: Colors.deepOrange),)
-          ],
-        ),
-        actions: <Widget>[
-          Opacity(
-            opacity: 0,
-            child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Icon(Icons.account_balance_sharp)),
-          )
-        ],
-        centerTitle: true,
-        elevation: 0.0,
-
-      ),
+      appBar: Supr3meAppBar(),
       drawer: Drawer(
-           child: Container(
-              color: Colors.black,
-
-
-    /// Categories
-                child:Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      height: 70,
-                      child: ListView.builder(
-                      itemCount: categories.length,
-                      // shrinkWrap: true,
-                      itemBuilder: (context, index){
-                      return CategoryTile(
-                      imageUrl: categories[index].imageUrl,
-                      categoryName: categories[index].categoryName,
-                  );
-                 }),
-                ),
-              ),
-            ),
-
-      body:
-     
-        Container(
-          color: Colors.black,
-          child: SingleChildScrollView(
-            child: Column(
-
-              children: <Widget>[
-
-                /// Categories
-                // Container(
-                //   padding: EdgeInsets.symmetric(horizontal: 16),
-                //   height: 70,
-                //   child: ListView.builder(
-                //       itemCount: categories.length,
-                //       shrinkWrap: true,
-                //       scrollDirection: Axis.horizontal,
-                //       itemBuilder: (context, index){
-                //         return CategoryTile(
-                //           imageUrl: categories[index].imageUrl,
-                //           categoryName: categories[index].categoryName,
-                //         );
-                //       }),
-                // ),
-
-                ///Articles
-                Container(
-                  padding: EdgeInsets.only(top: 20),
-
-                  child: ListView.builder(
-                      itemCount: articles.length,
-                      physics: ScrollPhysics(),
-                      shrinkWrap: true,
-                      // scrollDirection: Axis.vertical,
-                      itemBuilder: (context, index) {
-                        return ArticleTile(
-                            imageUrl: "${articles[index].urlToImage}",
-                            title: "${articles[index].title}",
-                            desc: "${articles[index].description}",
-                            url: "${articles[index].url}"
-                        );
-                      }),
-                )
-              ],
-            ),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: ListView.builder(
+            itemCount: categories.length,
+            itemBuilder: (context, index) {
+              return CategoryTile(
+                imageUrl: categories[index].imageUrl,
+                categoryName: categories[index].name,
+              );
+            },
           ),
         ),
-      );
+      ),
+      body: Padding(
+        padding: EdgeInsets.only(top: 20),
+        child: FutureBuilder<List<Article>>(
+          future: this._articleFuture,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data!.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return ArticleTile(
+                    imageUrl: snapshot.data![index].urlToImage!,
+                    title: snapshot.data![index].title!,
+                    desc: snapshot.data![index].description!,
+                    url: snapshot.data![index].url!,
+                  );
+                },
+              );
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+          },
+        ),
+      ),
+    );
   }
 }
 
 class CategoryTile extends StatelessWidget {
-
   final imageUrl, categoryName;
 
   CategoryTile({this.imageUrl, this.categoryName});
@@ -146,72 +80,39 @@ class CategoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-          Navigator.push(context, MaterialPageRoute(
-              builder: (context) => CategoryNews(
-                category: categoryName.toLowerCase(),
-              )
-          )
-          );
-      },
-      child: Container(
-          margin: EdgeInsets.fromLTRB(16, 20, 0, 5),
-          child: Stack(
-            children: <Widget>[
-              ClipRRect(
-                  borderRadius: BorderRadius.circular(6),
-                  child: CachedNetworkImage(
-                    imageUrl: imageUrl, width: 250, height: 60, fit: BoxFit.cover,)),
-              Container(
-                alignment: Alignment.center,
-                width: 120,
-                height: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: Text(categoryName, style: TextStyle(color: Colors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w900),),
-              )
-            ],
-          )
-      ),
-    );
-  }
-}
-
-class ArticleTile extends StatelessWidget {
-  
-  final String imageUrl, title, desc,url;
-  ArticleTile({@required this.imageUrl, @required this.title, @required this.desc, @required this.url});
-  
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(
-            builder: (context) => ArticleView(
-              articleUrl: url,
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CategoryNews(
+              category: categoryName.toLowerCase(),
             ),
-        ));
-
+          ),
+        );
       },
       child: Container(
-        padding: EdgeInsets.fromLTRB(16, 0, 16, 10),
-        child: Column(
+        margin: EdgeInsets.fromLTRB(16, 20, 0, 5),
+        child: Stack(
           children: <Widget>[
-            ClipRRect(borderRadius: BorderRadius.circular(6),
-                child: Image.network(imageUrl,fit: BoxFit.cover)),
-            Text(title,style: TextStyle(
-              fontSize: 17,
-              color: Colors.white,
-            ),),
-            Text(desc,style: TextStyle(
-              fontSize: 14, color: Colors.grey,
-            ),),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(6),
+              child: CachedNetworkImage(
+                imageUrl: imageUrl,
+                width: 250,
+                height: 60,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              height: 60,
+              child: Text(
+                categoryName,
+                style: Theme.of(context).textTheme.headline6,
+              ),
+            )
           ],
         ),
       ),
     );
   }
 }
-
