@@ -43,6 +43,7 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
+
       body: Padding(
         padding: EdgeInsets.only(top: 20),
         child: FutureBuilder<List<Article>>(
@@ -80,49 +81,43 @@ class CategoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => CategoryNews(
-              category: categoryName.toLowerCase(),
-            ),
-          ),
-        );
+          Navigator.push(context, MaterialPageRoute(
+              builder: (context) => CategoryNews(
+                category: categoryName.toLowerCase(),
+              )
+          )
+          );
       },
       child: Container(
-        margin: EdgeInsets.fromLTRB(16, 20, 0, 5),
-        child: Stack(
-          alignment: AlignmentDirectional.topEnd,
-          children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(6),
-              child: CachedNetworkImage(
-                imageUrl: imageUrl,
-                width: 250,
+          margin: EdgeInsets.fromLTRB(16, 20, 0, 5),
+          child: Stack(
+            alignment: AlignmentDirectional.topEnd,
+            children: <Widget>[
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(6),
+                  child: CachedNetworkImage(
+                    imageUrl: imageUrl, width: 250, height: 70, fit: BoxFit.cover,
+                    )),
+              Container(
+                alignment: Alignment.center,
+                width: 120,
                 height: 70,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              width: 120,
-              height: 70,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [Colors.black26,Colors.black],
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [Colors.black26,Colors.black],
                   // end: Alignment.topRight,
                   // begin: Alignment.bottomLeft
+                  ),
+                  
+                  borderRadius: BorderRadius.circular(6),
                 ),
-
-                borderRadius: BorderRadius.circular(6),
-              ),
-              child: Text(
-                categoryName,
-                style: Theme.of(context).textTheme.headline6,
-              ),
-            )
-          ],
-        ),
+                child: Text(categoryName, style: TextStyle(color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w900),),
+              )
+            ],
+          )
       ),
     );
   }
 }
+
