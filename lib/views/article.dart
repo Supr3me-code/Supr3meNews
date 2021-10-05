@@ -35,7 +35,7 @@ class _ArticleViewState extends State<ArticleView> {
             opacity: 0,
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Icon(Icons.account_balance_sharp)),
+                child: Icon(Icons.account_balance_sharp, color: Colors.deepOrange,)),
           )
         ],
         centerTitle: true,
