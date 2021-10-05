@@ -72,7 +72,8 @@ class _HomeState extends State<Home> {
                 child:Container(
                       padding: EdgeInsets.symmetric(horizontal: 16),
                       height: 70,
-                      child: ListView.builder(
+                      child: 
+                         ListView.builder(
                       itemCount: categories.length,
                       // shrinkWrap: true,
                       itemBuilder: (context, index){
@@ -114,7 +115,8 @@ class _HomeState extends State<Home> {
                 Container(
                   padding: EdgeInsets.only(top: 20),
 
-                  child: ListView.builder(
+                  child: 
+                    ListView.builder(
                       itemCount: articles.length,
                       physics: ScrollPhysics(),
                       shrinkWrap: true,
@@ -126,7 +128,7 @@ class _HomeState extends State<Home> {
                             desc: "${articles[index].description}",
                             url: "${articles[index].url}"
                         );
-                      }),
+                      })
                 )
               ],
             ),
@@ -156,16 +158,23 @@ class CategoryTile extends StatelessWidget {
       child: Container(
           margin: EdgeInsets.fromLTRB(16, 20, 0, 5),
           child: Stack(
+            alignment: AlignmentDirectional.topEnd,
             children: <Widget>[
               ClipRRect(
                   borderRadius: BorderRadius.circular(6),
                   child: CachedNetworkImage(
-                    imageUrl: imageUrl, width: 250, height: 60, fit: BoxFit.cover,)),
+                    imageUrl: imageUrl, width: 250, height: 70, fit: BoxFit.cover,
+                    )),
               Container(
                 alignment: Alignment.center,
                 width: 120,
-                height: 60,
+                height: 70,
                 decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [Colors.black26,Colors.black],
+                  // end: Alignment.topRight,
+                  // begin: Alignment.bottomLeft
+                  ),
+                  
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Text(categoryName, style: TextStyle(color: Colors.white,
@@ -257,3 +266,10 @@ class ArticleTile extends StatelessWidget {
 }
 
 
+// DecoratedBox(decoration: BoxDecoration(),
+//                       child: Text("Categories",
+//                       style:TextStyle(
+//                         color: Colors.deepOrange,
+//                         fontSize: 16,
+//                         letterSpacing: 1
+//                       ),),),
