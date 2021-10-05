@@ -52,16 +52,10 @@ class _HomeState extends State<Home> {
           ],
         ),
         actions: <Widget>[
-          Opacity(
-            opacity: 0,
-            child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Icon(Icons.account_balance_sharp)),
-          )
+          IconButton(icon: Icon(Icons.search), onPressed: (){})
         ],
         centerTitle: true,
         elevation: 0.0,
-
       ),
       drawer: Drawer(
            child: Container(
@@ -87,53 +81,67 @@ class _HomeState extends State<Home> {
 
       body:
      
-        Container(
-          color: Colors.black,
-          child: SingleChildScrollView(
-            child: Column(
 
-              children: <Widget>[
+            Container(
+              color: Colors.black,
+              child: SingleChildScrollView(
+                child: Column(
 
-                /// Categories
-                // Container(
-                //   padding: EdgeInsets.symmetric(horizontal: 16),
-                //   height: 70,
-                //   child: ListView.builder(
-                //       itemCount: categories.length,
-                //       shrinkWrap: true,
-                //       scrollDirection: Axis.horizontal,
-                //       itemBuilder: (context, index){
-                //         return CategoryTile(
-                //           imageUrl: categories[index].imageUrl,
-                //           categoryName: categories[index].categoryName,
-                //         );
-                //       }),
-                // ),
+                  children: <Widget>[
+                    // Container(
+                    //   child: Text("Search Bar lol",style: TextStyle(color: Colors.white),),
+                    // ),
+                    ///Articles
+                    Container(
+                      padding: EdgeInsets.only(top: 20),
 
-                ///Articles
-                Container(
-                  padding: EdgeInsets.only(top: 20),
-
-                  child: ListView.builder(
-                      itemCount: articles.length,
-                      physics: ScrollPhysics(),
-                      shrinkWrap: true,
-                      // scrollDirection: Axis.vertical,
-                      itemBuilder: (context, index) {
-                        return ArticleTile(
-                            imageUrl: "${articles[index].urlToImage}",
-                            title: "${articles[index].title}",
-                            desc: "${articles[index].description}",
-                            url: "${articles[index].url}"
-                        );
-                      }),
-                )
-              ],
+                      child: ListView.builder(
+                          itemCount: articles.length,
+                          physics: ScrollPhysics(),
+                          shrinkWrap: true,
+                          // scrollDirection: Axis.vertical,
+                          itemBuilder: (context, index) {
+                            return ArticleTile(
+                                imageUrl: "${articles[index].urlToImage}",
+                                title: "${articles[index].title}",
+                                desc: "${articles[index].description}",
+                                url: "${articles[index].url}"
+                            );
+                          }),
+                    )
+                  ],
+                ),
+              ),
             ),
-          ),
-        ),
-      );
+        );
   }
+}
+
+class DataSearch extends SearchDelegate<String>{
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    // TODO: implement buildActions
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    // TODO: implement buildLeading
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // TODO: implement buildResults
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    // TODO: implement buildSuggestions
+    throw UnimplementedError();
+  }
+  
 }
 
 class CategoryTile extends StatelessWidget {
