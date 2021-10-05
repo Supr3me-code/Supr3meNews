@@ -1,6 +1,6 @@
-class CategoryModel{
-
-  String? categoryName;
+class Category {
+  String? name;
   String? imageUrl;
 
+  Category({this.name, this.imageUrl});
 }

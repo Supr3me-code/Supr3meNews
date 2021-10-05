@@ -15,7 +15,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<CategoryModel> categories = [];
+  List<Category> categories = [];
   List<ArticleModel> articles = [];
 
   bool _loading = true;
@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
                       itemBuilder: (context, index){
                       return CategoryTile(
                       imageUrl: categories[index].imageUrl,
-                      categoryName: categories[index].categoryName,
+                      categoryName: categories[index].name,
                   );
                  }),
                 ),
@@ -105,7 +105,7 @@ class _HomeState extends State<Home> {
                 //       itemBuilder: (context, index){
                 //         return CategoryTile(
                 //           imageUrl: categories[index].imageUrl,
-                //           categoryName: categories[index].categoryName,
+                //           categoryName: categories[index].name,
                 //         );
                 //       }),
                 // ),
