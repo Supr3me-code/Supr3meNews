@@ -264,12 +264,3 @@ class ArticleTile extends StatelessWidget {
     );
   }
 }
-
-
-// DecoratedBox(decoration: BoxDecoration(),
-//                       child: Text("Categories",
-//                       style:TextStyle(
-//                         color: Colors.deepOrange,
-//                         fontSize: 16,
-//                         letterSpacing: 1
-//                       ),),),
