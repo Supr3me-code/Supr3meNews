@@ -15,8 +15,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<CategoryModel> categories = new List<CategoryModel>();
-  List<ArticleModel> articles = new List<ArticleModel>();
+  List<CategoryModel> categories = [];
+  List<ArticleModel> articles = [];
 
   bool _loading = true;
 
@@ -182,7 +182,7 @@ class CategoryTile extends StatelessWidget {
 class ArticleTile extends StatelessWidget {
   
   final String imageUrl, title, desc,url;
-  ArticleTile({@required this.imageUrl, @required this.title, @required this.desc, @required this.url});
+  ArticleTile({required this.imageUrl, required this.title, required this.desc, required this.url});
   
   @override
   Widget build(BuildContext context) {

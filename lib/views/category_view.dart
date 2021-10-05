@@ -5,7 +5,7 @@ import 'package:news_app/helper/news.dart';
 
 class CategoryNews extends StatefulWidget {
 
-  final String category;
+  final String? category;
   CategoryNews({this.category});
 
   @override
@@ -14,7 +14,7 @@ class CategoryNews extends StatefulWidget {
 
 class _CategoryNewsState extends State<CategoryNews> {
 
-  List<ArticleModel> articles = new List<ArticleModel>();
+  List<ArticleModel> articles = [];
   bool _loading = true;
 
   @override
@@ -92,7 +92,7 @@ class _CategoryNewsState extends State<CategoryNews> {
 class ArticleTile extends StatelessWidget {
 
   final String imageUrl, title, desc,url;
-  ArticleTile({@required this.imageUrl, @required this.title, @required this.desc, @required this.url});
+  ArticleTile({required this.imageUrl, required this.title, required this.desc, required this.url});
 
   @override
   Widget build(BuildContext context) {

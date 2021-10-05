@@ -2,7 +2,7 @@ import 'package:news_app/models/category_model.dart';
 
 List<CategoryModel> getCategories(){
 
-  List<CategoryModel> category = new List<CategoryModel>();
+  List<CategoryModel> category = [];
   CategoryModel categoryModel = new CategoryModel();
 
   categoryModel.categoryName = "Business";
