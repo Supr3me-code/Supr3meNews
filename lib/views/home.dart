@@ -92,19 +92,29 @@ class CategoryTile extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.fromLTRB(16, 20, 0, 5),
         child: Stack(
+          alignment: AlignmentDirectional.topEnd,
           children: <Widget>[
             ClipRRect(
               borderRadius: BorderRadius.circular(6),
               child: CachedNetworkImage(
                 imageUrl: imageUrl,
                 width: 250,
-                height: 60,
+                height: 70,
                 fit: BoxFit.cover,
               ),
             ),
             Container(
               alignment: Alignment.center,
-              height: 60,
+              width: 120,
+              height: 70,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [Colors.black26,Colors.black],
+                  // end: Alignment.topRight,
+                  // begin: Alignment.bottomLeft
+                ),
+
+                borderRadius: BorderRadius.circular(6),
+              ),
               child: Text(
                 categoryName,
                 style: Theme.of(context).textTheme.headline6,

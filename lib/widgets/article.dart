@@ -68,22 +68,6 @@ class ArticleTile extends StatelessWidget {
                   ),
                 ),
               ),
-              // DecoratedBox(decoration:
-              // BoxDecoration(),
-              // child: Padding(
-              //   padding: const EdgeInsets.all(8.0),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-              //     children: [
-              //       Icon(
-              //         Icons.share,color: Colors.deepOrange,size:30
-              //       ),
-              //       Icon(
-              //         Icons.bookmark,color: Colors.deepOrange,size: 30,
-              //         )
-              //     ],
-              //   ),
-              // ),)
             ],
           ),
         ),
