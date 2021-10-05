@@ -6,8 +6,8 @@ import 'package:news_app/models/article.dart';
 import 'package:news_app/models/category.dart';
 import 'package:news_app/helper/news.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:news_app/views/article_view.dart';
-import 'package:news_app/views/category_view.dart';
+import 'package:news_app/views/article.dart';
+import 'package:news_app/views/category.dart';
 
 class Home extends StatefulWidget {
   @override
