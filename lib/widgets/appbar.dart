@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/views/search.dart';
 
 class Supr3meAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -18,17 +20,21 @@ class _Supr3meAppBarState extends State<Supr3meAppBar> {
   Widget build(BuildContext context) {
     //custom appbar
     return AppBar(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.grey.shade900,
+      elevation:10,
+      shadowColor: Colors.grey.shade600,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
             "Supr3me",
-            style: TextStyle(color: Colors.white),
+            style: GoogleFonts.ptSerif(fontWeight: FontWeight.bold,letterSpacing: 1,
+            color: Colors.white)
           ),
           Text(
             "News",
-            style: TextStyle(color: Colors.deepOrange),
+            style: GoogleFonts.ptSerif(fontWeight: FontWeight.bold,letterSpacing: 1,
+            color: Colors.deepOrange),
           )
         ],
       ),
@@ -47,7 +53,6 @@ class _Supr3meAppBarState extends State<Supr3meAppBar> {
         ),
       ],
       centerTitle: true,
-      elevation: 0.0,
     );
   }
 }

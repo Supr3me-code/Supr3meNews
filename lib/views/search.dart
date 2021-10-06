@@ -18,40 +18,45 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.grey.shade800,
         title: Container(
           width: double.infinity,
           height: 40,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(5)),
           child: Center(
-            child: TextField(
-              focusNode: _node,
-              autofocus: true,
-              style: TextStyle(color: Colors.black),
-              controller: _controller,
-              onChanged: (text) {
-                this.query = text;
-              },
-              onEditingComplete: () => setState(() {}),
-              decoration: InputDecoration(
-                prefixIcon: IconButton(
-                  icon: Icon(
-                    Icons.search,
-                    color: Colors.black,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15)
+              ),
+              child: TextField(
+                focusNode: _node,
+                autofocus: true,
+                style: TextStyle(color: Colors.black),
+                controller: _controller,
+                onChanged: (text) {
+                  this.query = text;
+                },
+                onEditingComplete: () => setState(() {}),
+                decoration: InputDecoration(
+                  prefixIcon: IconButton(
+                    icon: Icon(
+                      Icons.search,
+                      color: Colors.black,
+                    ),
+                    onPressed: () => setState(() {}),
                   ),
-                  onPressed: () => setState(() {}),
-                ),
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    Icons.clear,
-                    color: Colors.black,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      Icons.clear,
+                      color: Colors.black,
+                    ),
+                    onPressed: () => _controller.clear(),
                   ),
-                  onPressed: () => _controller.clear(),
+                  hintText: 'Search...',
+                  hintStyle: TextStyle(color: Colors.grey),
+                  border: InputBorder.none,
                 ),
-                hintText: 'Search by title or keyword',
-                hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none,
               ),
             ),
           ),
