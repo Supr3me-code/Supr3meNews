@@ -15,6 +15,7 @@ class Supr3meAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _Supr3meAppBarState extends State<Supr3meAppBar> {
   @override
   Widget build(BuildContext context) {
+    //custom appbar
     return AppBar(
       backgroundColor: Colors.black,
       title: Row(
