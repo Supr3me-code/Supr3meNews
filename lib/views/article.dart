@@ -46,6 +46,7 @@ class _ArticleViewState extends State<ArticleView> {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
+        //Webview enables to display webpages without interference of third party apps
         child: WebView(
           initialUrl: widget.articleUrl,
           onWebViewCreated: ((WebViewController webViewController){

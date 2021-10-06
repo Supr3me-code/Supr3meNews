@@ -35,6 +35,7 @@ class _CategoryNewsState extends State<CategoryNews> {
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return ArticleTile(
+                  //null safety measures
                   imageUrl: snapshot.data![index].urlToImage!,
                   title: snapshot.data![index].title!,
                   desc: snapshot.data![index].description!,
