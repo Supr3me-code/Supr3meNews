@@ -44,7 +44,7 @@ class ArticleTile extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: SizedBox(
-                  width: MediaQuery.of(context).size.width / 1.2 ,
+                  width: MediaQuery.of(context).size.width / 1.2,
                   child: Text(
                     title!,
                     style: TextStyle(
@@ -57,7 +57,7 @@ class ArticleTile extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: SizedBox(
-                  height: MediaQuery.of(context).size.height / 4.5,
+                  height: MediaQuery.of(context).size.height / 4,
                   width: MediaQuery.of(context).size.width / 1.2,
                   child: Text(
                     desc!,
