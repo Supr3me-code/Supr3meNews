@@ -35,51 +35,57 @@ class ArticleTile extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 18.0),
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height / 4,
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(6),
-                      child: Image.network(imageUrl!, fit: BoxFit.cover)),
-                ),
-              ),
-               
+                  padding: const EdgeInsets.symmetric(vertical: 18.0,horizontal: 10),
+                  child: Flex(
+                    direction: Axis.horizontal,
+                    children:[ Expanded(
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(6),
+                          child: Image.network(imageUrl!, fit: BoxFit.cover)),
+                    ),]
+                  ),
+                ),              
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width / 1.2,
-                  child: Text(
-                    title!,
-                    style: GoogleFonts.lora(
-                      color: Colors.white,
-                      fontSize: 16,
-                      letterSpacing: 0.3,
-                      fontWeight: FontWeight.w600,
-                    )
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width / 1.2,
+                    child: Text(
+                      title!,
+                      style: GoogleFonts.lora(
+                        color: Colors.white,
+                        fontSize: 16,
+                        letterSpacing: 0.3,
+                        fontWeight: FontWeight.w600,
+                      )
+                    ),
                   ),
                 ),
-              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal:8.0),
                 child: Divider(
                   color: Colors.grey.shade300,
                 ), ),             
               Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height / 4,
-                  width: MediaQuery.of(context).size.width / 1.2,
-                  child: Text(
-                    desc!,
-                    style: GoogleFonts.inter(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w500,
-                      letterSpacing: 0.2,
-                      fontSize: 15
+                  padding: const EdgeInsets.all(10.0),
+                  child: Flex(
+                    direction: Axis.horizontal,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          desc!,
+                          textAlign: TextAlign.justify,
+                          style: GoogleFonts.inter(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: 0.3,
+                            fontSize: 15,
+                          ),
+                        ),
+                      //),
                     ),
+                    ]
                   ),
                 ),
-              ),
             ],
           ),
         ),
