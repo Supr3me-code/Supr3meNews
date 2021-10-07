@@ -45,8 +45,8 @@ class _Supr3meAppBarState extends State<Supr3meAppBar> {
         IconButton(
           onPressed: () => Navigator.push(
               context, MaterialPageRoute(builder: (context) => Search())),
-          icon: Icon(Icons.search),
-        ),
+          icon: Icon(Icons.search,size: 26,
+        ),)
       ],
       centerTitle: true,
     );
