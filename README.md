@@ -4,7 +4,7 @@
     <img style="border-radius: 50%" src="local/imgonline-com-ua-ReplaceColor-NXMYtDUgVzJ-modified.png" alt="Logo" width="100" height="100",style: border-radius=40>
   </a>
 
-  <h1 align="center">News App</h1>
+  <h1 align="center">Supr3me News</h1>
   
   <p align="center">
     A cross-platform News app that compiles top articles from various news sources (using NewsApi.org), sorts them by their categorories and finally displays them on a single stage.
