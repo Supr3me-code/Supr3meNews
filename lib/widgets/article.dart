@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/views/article.dart';
 
 class ArticleTile extends StatelessWidget {
@@ -41,19 +43,27 @@ class ArticleTile extends StatelessWidget {
                       child: Image.network(imageUrl!, fit: BoxFit.cover)),
                 ),
               ),
+               
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width / 1.2,
                   child: Text(
                     title!,
-                    style: TextStyle(
-                      fontSize: 17,
+                    style: GoogleFonts.lora(
                       color: Colors.white,
-                    ),
+                      fontSize: 16,
+                      letterSpacing: 0.3,
+                      fontWeight: FontWeight.w600,
+                    )
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal:8.0),
+                child: Divider(
+                  color: Colors.grey.shade300,
+                ), ),             
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: SizedBox(
@@ -61,9 +71,11 @@ class ArticleTile extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 1.2,
                   child: Text(
                     desc!,
-                    style: TextStyle(
-                      fontSize: 16,
+                    style: GoogleFonts.inter(
                       color: Colors.grey,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.2,
+                      fontSize: 15
                     ),
                   ),
                 ),
