@@ -1,8 +1,8 @@
 <br/>
 <p align="center">
-  <div style="text-align:center">
-    <img style="border-radius: 50%" src="local/imgonline-com-ua-ReplaceColor-NXMYtDUgVzJ.jpg" alt="Logo" width="80" height="80",style: border-radius=40>
-  </div>
+  <a href="">
+    <img style="border-radius: 50%" src="local/imgonline-com-ua-ReplaceColor-NXMYtDUgVzJ-modified.png" alt="Logo" width="100" height="100",style: border-radius=40>
+  </a>
 
   <h1 align="center">News App</h1>
   
@@ -28,7 +28,7 @@
 <a href="https://flutter.dev/" target="_blank"><img src="https://img.icons8.com/color/48/000000/flutter.png" width="45" height="45"/> </a> 
 <a href="https://git-scm.com/" target="_blank"> <img src="https://img.icons8.com/color/48/000000/git.png"/> </a>  
 <a href="https://www.dartpad.dev/?null_safety=true" target="_blank"><img src="https://img.icons8.com/color/48/000000/dart.png" width="45" height="45"/> </a>
-<a href="https://github.com/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733609.png" width="45" height="45"/> </a>
+<a href="https://github.com/" target="_blank"><img src="https://img.icons8.com/nolan/128/github.png" width="45" height="45"/> </a>
 </p>
 
 ## Packages used
