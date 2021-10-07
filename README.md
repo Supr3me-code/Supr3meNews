@@ -48,7 +48,8 @@
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/ShaanCoding/ReadME-Generator/issues/new) to discuss it, or directly create a pull request after you edit the project file with necessary changes.
+* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/Supr3me-code/Supr3meNews/issues/new) to discuss it.
+* Please make sure to open an issue and discuss it before directly opening a pull request !
 * Please make sure you check your spelling and grammar.
 
 ### Creating A Pull Request
