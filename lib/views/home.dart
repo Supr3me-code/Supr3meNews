@@ -104,8 +104,6 @@ class CategoryTile extends StatelessWidget {
                 height: 70,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [Colors.black26,Colors.black],
-                  // end: Alignment.topRight,
-                  // begin: Alignment.bottomLeft
                   ),
                   
                   borderRadius: BorderRadius.circular(6),
