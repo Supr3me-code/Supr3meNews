@@ -114,7 +114,8 @@ class CategoryTile extends StatelessWidget {
                       fontSize: 16,
                       letterSpacing: 0.3,
                       fontWeight: FontWeight.w600,
-                    ),),
+                    ),
+                 ),
               )
             ],
           )
