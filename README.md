@@ -43,7 +43,7 @@
 * Quality news content  
 
 ## Screenshots
-<img src="local/IMG_20210424_180334.jpg" width=200 height=400>      <img src="local/IMG_20210424_180322(1).jpg" width=200 height=400> <img src="local/IMG_20210424_180350.jpg" width=200 height=400>
+<img src="local/1634075669880.jpg" width=200 height=400>      <img src="local/1634075669876.jpg" width=200 height=400> <img src="local/1634075669871.jpg" width=200 height=400>
 
 ## Contributing
 
