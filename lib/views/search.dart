@@ -18,7 +18,9 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey.shade800,
+        backgroundColor: Colors.grey.shade900,        
+      elevation:10,
+      shadowColor: Colors.grey.shade500,
         title: Container(
           width: double.infinity,
           height: 40,
@@ -27,33 +29,35 @@ class _SearchState extends State<Search> {
           child: Center(
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15)
+                color: Colors.grey.shade900,
+                //borderRadius: BorderRadius.circular(15)
               ),
-              child: TextField(
+              child: TextField(   
+                textCapitalization: TextCapitalization.words,             
                 focusNode: _node,
                 autofocus: true,
-                style: TextStyle(color: Colors.black),
                 controller: _controller,
                 onChanged: (text) {
                   this.query = text;
                 },
                 onEditingComplete: () => setState(() {}),
                 decoration: InputDecoration(
-                  prefixIcon: IconButton(
-                    icon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                    ),
-                    onPressed: () => setState(() {}),
-                  ),
+                  // prefixIcon: IconButton(
+                  //   icon: Icon(
+                  //     Icons.search,
+                  //     color: Colors.white
+                  //   ),
+                  //   onPressed: () => setState(() {}),
+                  // ),
+                  
                   suffixIcon: IconButton(
                     icon: Icon(
                       Icons.clear,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                     onPressed: () => _controller.clear(),
                   ),
-                  hintText: 'Search...',
+                  hintText: 'Search topics',
                   hintStyle: TextStyle(color: Colors.grey),
                   border: InputBorder.none,
                 ),
