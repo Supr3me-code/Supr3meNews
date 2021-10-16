@@ -5,7 +5,8 @@
   </a>
 
   <h1 align="center">Supr3me News</h1>
-  
+  <p align="center">
+<a href="https://play.google.com/store/apps/details?id=com.news_app.supr3me_news">PlayStore link</a>
   <p align="center">
     A cross-platform News app that compiles top articles from various news sources (using NewsApi.org), sorts them by their categories and finally displays them on a single stage.
     <br/>
