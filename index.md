@@ -1,37 +1,63 @@
-## Welcome to GitHub Pages
+<br/>
+<p align="center">
+  <a href="">
+    <img style="border-radius: 50%" src="local/imgonline-com-ua-ReplaceColor-NXMYtDUgVzJ-modified.png" alt="Logo" width="100" height="100",style: border-radius=40>
+  </a>
 
-You can use the [editor on GitHub](https://github.com/Supr3me-code/Supr3meNews/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+  <h1 align="center">Supr3me News</h1>
+  <p align="center">
+<a href="https://play.google.com/store/apps/details?id=com.news_app.supr3me_news">PlayStore link</a>
+  <p align="center">
+    A cross-platform News app that compiles top articles from various news sources (using NewsApi.org), sorts them by their categories and finally displays them on a single stage.
+    <br/>
+    <br/>   
+  </p>
+</p>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- [Built With](#built-with)
+- [Packages used](#packages-used)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+  - [Creating A Pull Request](#creating-a-pull-request)
+- [Authors](#authors)
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Built With
 
-```markdown
-Syntax highlighted code block
+<p align="left">
+<a href="https://flutter.dev/" target="_blank"><img src="https://img.icons8.com/color/48/000000/flutter.png" width="45" height="45"/> </a> 
+<a href="https://git-scm.com/" target="_blank"> <img src="https://img.icons8.com/color/48/000000/git.png"/> </a>  
+<a href="https://www.dartpad.dev/?null_safety=true" target="_blank"><img src="https://img.icons8.com/color/48/000000/dart.png" width="45" height="45"/> </a>
+<a href="https://github.com/" target="_blank"><img src="https://img.icons8.com/nolan/128/github.png" width="45" height="45"/> </a>
+</p>
 
-# Header 1
-## Header 2
-### Header 3
+## Packages used
+* webview_flutter: ^2.0.4  
+* cached_network_image: ^3.0.0  
+* http: ^0.13.1  
+  
+## Features
+* Interactive UI
+* News Updates 
+* News Categories to choose from
+* Quality news content  
+* Dark Mode
 
-- Bulleted
-- List
+## Screenshots
+<img src="local/1634075669880.jpg" width=200 height=400>      <img src="local/1634075669876.jpg" width=200 height=400> <img src="local/IMG_20211016_123901.jpg" width=200 height=400> <img src="local/1634075669871.jpg" width=200 height=400>
 
-1. Numbered
-2. List
+## Contributing
 
-**Bold** and _Italic_ and `Code` text
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/Supr3me-code/Supr3meNews/issues/new) to discuss it.
+* Please make sure to open an issue and discuss it before directly opening a pull request !
+* Please make sure you check your spelling and grammar.
 
-[Link](url) and ![Image](src)
-```
+### Creating A Pull Request
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Supr3me-code/Supr3meNews/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
