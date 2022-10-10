@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/views/search.dart';
 
 class Supr3meAppBar extends StatefulWidget implements PreferredSizeWidget {
   Supr3meAppBar({Key? key})
@@ -17,7 +18,9 @@ class _Supr3meAppBarState extends State<Supr3meAppBar> {
   Widget build(BuildContext context) {
     //custom appbar
     return AppBar(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.grey.shade900,
+      elevation: 10,
+      shadowColor: Colors.grey.shade500,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -38,10 +41,17 @@ class _Supr3meAppBarState extends State<Supr3meAppBar> {
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Icon(Icons.account_balance_sharp),
           ),
+        ),
+        IconButton(
+          onPressed: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Search())),
+          icon: Icon(
+            Icons.search,
+            size: 26,
+          ),
         )
       ],
       centerTitle: true,
-      elevation: 0.0,
     );
   }
 }
