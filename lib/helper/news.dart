@@ -11,7 +11,8 @@ Future<List<Article>> getNews() async {
       "https://newsapi.org/v2/top-headlines?country=in&apiKey=5218da74c8a8410790f03364b628d035");
 
   var response = await http.get(url);
-
+  
+  //fetching data
   var jsonData = jsonDecode(response.body);
 
   if (jsonData['status'] == "ok") {
@@ -37,6 +38,7 @@ Future<List<Article>> getNews() async {
   return news;
 }
 
+//creating a future to create a pipeline
 Future<List<Article>> getNewsByCategory(String? category) async {
   List<Article> news = [];
 
@@ -71,6 +73,7 @@ Future<List<Article>> getNewsByCategory(String? category) async {
   return news;
 }
 
+//creating a future to build data pipelines
 Future<List<Article>> getNewsBySearchQuery(String? query) async {
   List<Article> news = [];
 

@@ -18,7 +18,9 @@ class _Supr3meAppBarState extends State<Supr3meAppBar> {
   Widget build(BuildContext context) {
     //custom appbar
     return AppBar(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.grey.shade900,
+      elevation: 10,
+      shadowColor: Colors.grey.shade500,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -43,11 +45,13 @@ class _Supr3meAppBarState extends State<Supr3meAppBar> {
         IconButton(
           onPressed: () => Navigator.push(
               context, MaterialPageRoute(builder: (context) => Search())),
-          icon: Icon(Icons.search),
-        ),
+          icon: Icon(
+            Icons.search,
+            size: 26,
+          ),
+        )
       ],
       centerTitle: true,
-      elevation: 0.0,
     );
   }
 }

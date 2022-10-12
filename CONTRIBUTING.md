@@ -1,5 +1,6 @@
+## Steps to contribute to this repository: 
 1. ⭐ Star the repository
-2. 🔴 Raise an issue about the changes you wanna make or Claim an existing issue (get it assigned to you before you start working on it).
+2. 🔴 Raise an issue about the changes you wanna make or Claim an existing issue i.e. get it assigned to you before you start working on it.
 3. 🟢 Get the confirmation (response time = less than 3 hrs)
 4. ▶️ Fork the repo and do your thing!!
 5. 👌 Clone the repo to your local machine

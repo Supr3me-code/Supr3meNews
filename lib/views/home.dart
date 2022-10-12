@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/helper/data.dart';
 import 'package:news_app/models/article.dart';
 import 'package:news_app/models/category.dart';
@@ -104,15 +105,17 @@ class CategoryTile extends StatelessWidget {
                 height: 70,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [Colors.black26,Colors.black],
-                  // end: Alignment.topRight,
-                  // begin: Alignment.bottomLeft
                   ),
                   
                   borderRadius: BorderRadius.circular(6),
                 ),
-                child: Text(categoryName, style: TextStyle(color: Colors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w900),),
+                child: Text(categoryName, style: GoogleFonts.lora(
+                      color: Colors.white,
+                      fontSize: 16,
+                      letterSpacing: 0.3,
+                      fontWeight: FontWeight.w600,
+                    ),
+                 ),
               )
             ],
           )
